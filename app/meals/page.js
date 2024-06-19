@@ -1,26 +1,33 @@
+import MealsGrid from '@/components/meals/meals-grid'
+import classes from './page.module.css'
 import Link from "next/link"
+import getMeals from '@/lib/meals'
 
-const MealsPage = () =>{
+const MealsPage = async() => {
+
+    const meals = await getMeals();
+
     return (
-        <main>
-            <h1>
-                Meals Page
-            </h1>
-            <p>
-                <Link href="/community">Community</Link>
-            </p>
-            <p>
-                <Link href="/meals/meal-1">Meal-1</Link>
-            </p>
-            <p>
-                <Link href="/meals/meal-4">Meal-4</Link>
-            </p>
-            <p>
-                <Link href="/meals/meal-3">Meal-3</Link>
-            </p>
-        </main>
-    )
+        <>
+            <header className={classes.header}>
+                <h1>
+                    delicious meals, created <span className={classes.highlight}>by you</span>
+                </h1>
+                <p>
+                    Choose your own recipes
+                </p>
+                <p className={classes.cta}>
+                    <Link href="/meals/share">
+                        Share your own recipes
+                    </Link>
+                </p>
+            </header>
+            <main className={classes.main}>
+                <MealsGrid meal={meals}/>
+            </main>
+        </>
 
+    )
 }
 
 export default MealsPage

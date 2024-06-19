@@ -5,12 +5,17 @@ import logoImg from '@/assets/logo.png';
 import classes from './main-header.module.css'
 
 import MainHeaderBackground from '@/components/main-header/main-header';
+import NavLink from "./nav-link";
+
+import { usePathname } from "next/navigation";
+
 
 const MainHeader = () => {
+
     return (
         <>
             {
-            //    <MainHeaderBackground />
+                //    <MainHeaderBackground />
             }
             <header className={classes.header}>
                 <Link className={classes.logo} href="/">
@@ -21,13 +26,15 @@ const MainHeader = () => {
                 <nav className={classes.nav}>
                     <ul>
                         <li>
-                            <Link href="/meals"> Browse Meals</Link>
-                        </li>
-                        <li>
-                            <Link href="/community"> Foodies Community</Link>
+                            <NavLink href='/meals' > Browse Meals </NavLink>
                         </li>
                     </ul>
                 </nav>
+
+                <NavLink href='/community'>Foodies Community</NavLink>
+
+
+
             </header>
 
         </>
