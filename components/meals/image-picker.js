@@ -14,7 +14,7 @@ const ImagePicker = ({ label, name }) => {
 
     const handleImageChange = (event) => {
         console.log(event.target)
-        const file = event.target.file[0];
+        const file = event.target.files[0];
 
         if (!file) {
             return
