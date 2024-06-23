@@ -4,6 +4,23 @@ import Image from 'next/image'
 import {getMeal} from '@/lib/meals'
 import { notFound } from 'next/navigation'
 
+/**
+* [generateMetaData for dynamic page]
+* @param {[object]} params [props]
+* @return {[obj]} [title and description for meta data]
+*/
+export const generateMetaData = async( {params} ) =>{
+    const meal = getMeal(params.mealSlug)
+    if(!meal){
+        notFound()
+    }
+
+    return {
+        title: meal.title,
+        description: meal.summary,
+    }
+} 
+
 const MealDetailsPage = async({ params }) => {
 
     console.log(params)

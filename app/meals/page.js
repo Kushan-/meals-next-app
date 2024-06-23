@@ -6,6 +6,11 @@ import classes from './page.module.css'
 import Link from "next/link"
 import { Suspense } from 'react'
 
+export const metadata = {
+    title: 'All Meals',
+    description: 'Browse the delicious meals shared by our vibrant community.'
+}
+
 const Meals = async() => {
     const mealsGridData = await getMeals()
     return <MealsGrid meal={mealsGridData}/>
