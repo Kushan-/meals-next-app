@@ -34,6 +34,9 @@ const MealsPage = async() => {
                 </p>
             </header>
             <main className={classes.main}>
+                {
+                // fallback until children loads
+                }
                 <Suspense fallback={
                     <p className={classes.loading}>
                     Fetching meals ...
